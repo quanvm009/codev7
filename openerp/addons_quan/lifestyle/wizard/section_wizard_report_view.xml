@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <record id="print_report_section_wizard_form" model="ir.ui.view">
+            <field name="name">print.report.section.wizard.form</field>
+            <field name="model">section.wizard.report</field>
+            <field name="arch" type="xml">
+                <form string="Section Wizard Report" version="7.0">
+                    <label string="This wizard use to print report Section "/>
+                    <group>
+                        <field name="sale_id" on_change="onchange_sale_id(sale_id)"/>
+                        <field name="section_id" invisible="1"/>
+                        <field name="warehouse_id" invisible="1"/>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" icon="gtk-print" default_focus="1"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" icon="gtk-cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_print_report_wizard_form" model="ir.actions.act_window">
+            <field name="name">Section Wizard Report</field>
+            <field name="res_model">section.wizard.report</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="print_report_section_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem
+                name="Report Section"
+                id="init_create_action_print_report_wizard_form"
+                parent="menu_production" sequence="20"
+                action="action_print_report_wizard_form"
+                />
+
+
+    </data>
+</openerp>

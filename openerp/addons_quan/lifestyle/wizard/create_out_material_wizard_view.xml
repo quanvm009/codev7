@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_create_out_material_wizard" model="ir.ui.view">
+            <field name="name">view.create.out.material.wizard</field>
+            <field name="model">create.out.material.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Delivery Product Material" version="7.0">
+                    <group col="4" colspan="2">
+                        <field name="partner_id"/>
+                        <field name="sale_id"/>
+                        <field name="lc"/>
+                        <field name="date_order"/>
+                        <field name="stock_id" on_change="onchange_stock_id(stock_id, context)"/>
+                        <newline/>
+                        <field name="note" colspan="4"/>
+                    </group>
+                    <separator string="Product Detail" colspan="2"/>
+                    <field name="material_ids">
+                        <tree editable="top">
+                            <field name="section_id" invisible="1"/>
+                            <field name="material_id" invisible="1"/>
+                            <field name="product_id" on_change="onchange_product_id(product_id, context)"/>
+                            <field name="quantity"/>
+                            <field name="qty_kg" invisible="1"/>
+                            <field name="product_uom"/>
+                            <field name="lot"/>
+                            <field name="roll"/>
+                        </tree>
+                        <form>
+                            <field name="section_id"/>
+                            <field name="material_id" invisible="1"/>
+                            <field name="product_id" on_change="onchange_product_id(product_id, context)"/>
+                            <field name="quantity"/>
+                            <field name="qty_kg" invisible="1"/>
+                            <field name="product_uom"/>
+                            <field name="lot"/>
+                            <field name="roll"/>
+                        </form>
+                    </field>
+                    <footer>
+                        <button name="button_validate" string="Validate" type="object" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <!--
+
+                <record id="action_view_create_out_material_wizard" model="ir.actions.act_window">
+                    <field name="name">Delivery Product Material</field>
+                    <field name="res_model">create.out.material.wizard</field>
+                    <field name="view_type">form</field>
+                    <field name="view_mode">form</field>
+                    <field name="view_id" ref="view_create_out_material_wizard"/>
+                    <field name="target">new</field>
+                </record>
+
+            -->
+    </data>
+</openerp>

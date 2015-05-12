@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+
+        ################## move search
+
+
+        <record id="init_view_move_search_inherit" model="ir.ui.view">
+            <field name="name">init.view.move.search.inherit</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="stock.view_move_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group/filter[@string='Product']" position="after">
+                    <filter string="User" domain="[]" context="{'group_by':'user_id'}"/>
+                    <filter string="Sale Order" domain="[]" context="{'group_by':'sale_id'}"/>
+                    <filter string="Picking Order" domain="[]" context="{'group_by':'picking_id'}"/>
+                </xpath>
+                <xpath expr="//field[@name='product_id']" position="after">
+                    <field name="user_id"/>
+                    <field name="sale_id"/>
+                    <field name="picking_id"/>
+                </xpath>
+            </field>
+        </record>
+
+
+
+
+    </data>
+</openerp>

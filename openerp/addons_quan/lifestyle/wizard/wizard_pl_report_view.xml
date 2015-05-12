@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="wizard_ledger" model="ir.ui.view">
+            <field name="name">stock_movement_report</field>
+            <field name="model">wizard.init.stock.movement</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Report Options" version="7.0">
+                    <group>
+                        <field name="sale_order_id" on_change="onchange_sale_order_id(sale_order_id)"
+                               widget="many2many_tags"/>
+                        <field name="warehouse_id" widget="many2many_tags"/>
+                        <field name="month_from" on_change="onchange_month(month_to,month_from)"/>
+                        <field name="month_to" on_change="onchange_month(month_to,month_from)"/>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" icon="gtk-print" default_focus="1"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" icon="gtk-cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_stock_movement" model="ir.actions.act_window">
+            <field name="name">Stock Movement Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.init.stock.movement</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_action_wizard_stock_movement"
+                  icon="STOCK_PRINT"
+                  action="action_wizard_stock_movement"
+                  parent="stock.menu_stock_warehouse_mgmt"
+                  groups="lifestyle.group_lifestyle_user"
+                  name="Stock Movement Report"
+                />
+    </data>
+</openerp>

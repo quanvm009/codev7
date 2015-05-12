@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="aeroo_sm_report_location_id" model="ir.actions.report.xml">
+            <field name="name">stock_movement_report_location</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">wizard.init.stock.movement</field>
+            <field name="report_name">sm_report_location</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-ods</field>
+            <field name="parser_loc">lifestyle/report/pl_report.py</field>
+            <field name="report_rml">lifestyle/report/stock_movement_location.ods</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+        <record model="ir.values" id="init_stock_movement_report_location">
+            <field name="model_id" ref="model_wizard_init_stock_movement"/>
+            <field name="name">stock movement location</field>
+            <field name="key2">client_print_multi</field>
+            <field name="value" eval="'ir.actions.report.xml,'+str(aeroo_sm_report_location_id)"/>
+            <field name="key">action</field>
+            <field name="model">wizard.init.stock.movement</field>
+        </record>
+    </data>
+</openerp>

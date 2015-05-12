@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_create_out_finished_wizard" model="ir.ui.view">
+            <field name="name">view.create.out.finished.wizard</field>
+            <field name="model">create.out.finished.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Delivery Product Finished" version="7.0">
+                    <group col="4" colspan="2">
+                        <field name="date_order"/>
+                        <newline/>
+                        <field name="from_stock_id" on_change="onchange_warehouse_from(from_stock_id,context)"/>
+                        <field name="stock_id"/>
+                    </group>
+                    <separator string="Product Detail" colspan="2"/>
+                    <field name="finished_ids">
+                        <tree editable="top">
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                            <field name="price_unit"/>
+                            <field name="product_uom"/>
+                            <field name="lot"/>
+                            <field name="roll"/>
+                            <field name="width"/>
+                            <field name="weight"/>
+                        </tree>
+                        <form>
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+                            <field name="product_uom"/>
+                            <field name="lot"/>
+                            <field name="roll"/>
+                        </form>
+                    </field>
+                    <footer>
+                        <button name="button_validate" string="Validate" type="object" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_create_out_finished_wizard" model="ir.actions.act_window">
+            <field name="name">Delivery Product Finished</field>
+            <field name="res_model">create.out.finished.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_create_out_finished_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

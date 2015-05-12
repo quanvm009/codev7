@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="wizard_order_report" model="ir.ui.view">
+            <field name="name">wizard_order_report</field>
+            <field name="model">wizard.init.order</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Report Order" version="7.0">
+                    <group>
+                        <field name="month_from" on_change="onchange_month(month_to,month_from)"/>
+                        <field name="month_to" on_change="onchange_month(month_to,month_from)"/>
+                    </group>
+                    <footer>
+                        <button name="print_report" string="Print" type="object" icon="gtk-print" default_focus="1"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel" icon="gtk-cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_order_report_new" model="ir.actions.act_window">
+            <field name="name">Report Order Progress</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.init.order</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem id="menu_action_wizard_order_report_new"
+                  icon="STOCK_PRINT"
+                  action="action_wizard_order_report_new"
+                  parent="base.next_id_64"
+                />
+    </data>
+</openerp>

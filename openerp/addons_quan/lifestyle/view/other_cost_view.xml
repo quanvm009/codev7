@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        =====================================================
+        =================== Other Cost ===================
+        =====================================================
+        <record id="other_cost_search_view" model="ir.ui.view">
+            <field name="name">other.cost.search</field>
+            <field name="model">other.cost</field>
+            <field name="arch" type="xml">
+                <search string="Other Cost">
+                    <field name="name"/>
+                    <field name="sale_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="other_cost_list_view" model="ir.ui.view">
+            <field name="name">other.cost.list</field>
+            <field name="model">other.cost</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Other Cost">
+                    <field name="name"/>
+                    <field name="sale_id"/>
+                    <field name="price_subtotal"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="other_cost_form_view" model="ir.ui.view">
+            <field name="name">other.cost.form</field>
+            <field name="model">other.cost</field>
+            <field name="arch" type="xml">
+                <form string="Other Cost" version="7.0">
+                    <sheet>
+                        <group col="4" colspan="2">
+                            <field name="name"/>
+                            <field name="sale_id"/>
+                        </group>
+                        <separator string="Cost" colspan="2"/>
+                        <field name="cost_ids">
+                            <tree editable="top">
+                                <field name="name"/>
+                                <field name="quantity"/>
+                                <field name="price_unit"/>
+                                <field name="price_total"/>
+                            </tree>
+                            <form>
+                                <field name="name"/>
+                                <field name="quantity"/>
+                                <field name="price_unit"/>
+                                <field name="price_total"/>
+                            </form>
+                        </field>
+                        <group class="oe_subtotal_footer oe_right">
+                            <field name="price_subtotal" nolabel="1" class="oe_subtotal_footer_separator"
+                                   widget="monetary"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="other_cost_action_form" model="ir.actions.act_window">
+            <field name="name">Other Cost</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">other.cost</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="other_cost_search_view"/>
+            <field name="view_id" ref="other_cost_list_view"/>
+        </record>
+
+        <menuitem action="other_cost_action_form"
+                  id="menu_other_cost_action_form"
+                  groups="base.group_sale_salesman"
+                  parent="menu_production" sequence="5"/>
+
+    </data>
+</openerp>

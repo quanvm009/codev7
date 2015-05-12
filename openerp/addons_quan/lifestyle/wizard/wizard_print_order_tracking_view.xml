@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_wizard_print_order_tracking_report" model="ir.ui.view">
+            <field name="name">wizard.print.order.tracking.view</field>
+            <field name="model">wizard.print.order.tracking</field>
+            <field name="arch" type="xml">
+                <form string="Order Tracking" version="7.0">
+                    <group>
+                        <field name="sale_id" on_change="onchange_sale_id(sale_id)"/>
+                        <field name="stock_id"/>
+                    </group>
+                    <footer>
+                        <button string="Print" name="print_report" type="object"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_print_order_tracking_report_wizard" model="ir.actions.act_window">
+            <field name="name">Make Report</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.print.order.tracking</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_wizard_print_order_tracking_report"/>
+            <field name="target">new</field>
+            <field name="multi">True</field>
+        </record>
+
+        <record model="ir.values" id="make_report_order_tracking">
+            <field name="model_id" ref="lifestyle.model_production_plan"/>
+            <field name="name">Order Tracking Report</field>
+            <field name="key2">client_action_multi</field>
+            <field name="value"
+                   eval="'ir.actions.act_window,' + str(ref('action_print_order_tracking_report_wizard'))"/>
+            <field name="key">action</field>
+            <field name="model">production.plan</field>
+        </record>
+
+    </data>
+</openerp>

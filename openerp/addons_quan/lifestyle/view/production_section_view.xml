@@ -1,0 +1,445 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+        <menuitem name="Production"
+                  id="menu_production" parent="base.menu_base_partner" sequence="7"/>
+        =====================================================
+        =================== Production Finished =============
+        =====================================================
+        <record id="init_section_search_view" model="ir.ui.view">
+            <field name="name">init.section.search</field>
+            <field name="model">init.section</field>
+            <field name="arch" type="xml">
+                <search string="Section Definition">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="init_section_form_view" model="ir.ui.view">
+            <field name="name">init.section.form</field>
+            <field name="model">init.section</field>
+            <field name="arch" type="xml">
+                <form string="Section Definition" version="7.0">
+                    <sheet>
+                        <group col="4" colspan="2">
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="init_section_list_view" model="ir.ui.view">
+            <field name="name">init.section.list</field>
+            <field name="model">init.section</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Section Definition" editable="top">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="init_section_action_form" model="ir.actions.act_window">
+            <field name="name">Section Definition</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">init.section</field>
+            <field name="view_mode">form,tree,calendar,graph</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="init_section_search_view"/>
+            <field name="view_id" ref="init_section_list_view"/>
+        </record>
+
+        <menuitem action="init_section_action_form"
+                  id="menu_init_section_action_form"
+                  parent="base.menu_base_config" sequence="18"/>
+        =====================================================
+        =================== Production Section =============
+        =====================================================
+
+        <record id="production_section_search_view" model="ir.ui.view">
+            <field name="name">production.section.search</field>
+            <field name="model">production.section</field>
+            <field name="arch" type="xml">
+                <search string="Production Section">
+                    <field name="plan_id"/>
+                    <field name="sale_id"/>
+                    <field name="name"/>
+                    <field name="sequence"/>
+                    <field name="product_id"/>
+                    <field name="price"/>
+                    <field name="norm"/>
+                    <field name="stock_id"/>
+                    <field name="stock_plan_id"/>
+                    <field name="date_start"/>
+                    <field name="description"/>
+                    <field name="material_ids"/>
+                    <field name="finished_ids"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Status" icon="terp-stock_effects-object-colorize" domain="[]"
+                                context="{'group_by':'state'}"/>
+                        <filter string="Sale Orders" icon="terp-stock_effects-object-colorize" domain="[]"
+                                context="{'group_by':'sale_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="production_section_list_view" model="ir.ui.view">
+            <field name="name">production.section.list</field>
+            <field name="model">production.section</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Production Section">
+                    <field name="plan_id"/>
+                    <field name="sale_id"/>
+                    <field name="name"/>
+                    <field name="sequence"/>
+                    <field name="product_id" on_change="onchange_product_id(product_id, context)"/>
+                    <field name="qty"/>
+                    <field name="qty_kg" invisible="1"/>
+                    <field name="price"/>
+                    <field name="norm"/>
+                    <field name="stock_id"/>
+                    <field name="stock_plan_id"/>
+                    <field name="date_start"/>
+                    <field name="description"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="production_section_form_view" model="ir.ui.view">
+            <field name="name">production.section.form</field>
+            <field name="model">production.section</field>
+            <field name="arch" type="xml">
+                <form string="Production Section" version="7.0">
+                    <sheet>
+                        <header>
+                            <button name="out_finished" type="object" class="oe_highlight" string="Delivery Material"/>
+                            <button name="out_material" type="object" class="oe_highlight" string="Delivery Material"/>
+                            <button name="in_finished" type="object" class="oe_highlight" string="Incoming Finished"/>
+                            <button name="set_to_draft" type="object" class="oe_highlight" string="Set To Draft"
+                                    attrs="{'invisible':[('state','=','draft')]}"/>
+                            <field name="state" widget="statusbar" statusbar_colors='{"draft":"red","done":"blue"}'/>
+                        </header>
+                        <group>
+                            <field name="plan_id" invisible="1"/>
+                            <field name="name" invisible="1"/>
+                            <group>
+                                <field name="section_config_id"
+                                       on_change="onchange_section_config_id(section_config_id, context)"/>
+                                <field name="product_id" on_change="onchange_product_id(product_id, context)"/>
+                                <field name="stock_plan_id"/>
+                                <field name="qty"/>
+                                <field name="norm"/>
+                                <field name="date_start"/>
+                            </group>
+                            <group>
+                                <field name="sequence"/>
+                                <field name="sale_id"/>
+                                <field name="product_uom" invisible="1"/>
+                                <field name="price"/>
+                                <field name="qty_kg" invisible="1"/>
+                                <field name="stock_id"/>
+                                <field name="user_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Production Finished">
+                                <field name="finished_ids"/>
+                            </page>
+                            <page string="Production Material">
+                                <group>
+                                    <field name="section_ids"
+                                           on_change="onchange_section_ids(section_ids,sequence,plan_id, context)"
+                                           widget="many2many_tags"/>
+                                </group>
+                                <field name="material_ids"/>
+                            </page>
+                            <page string="History" invisible="1">
+                                <field name="history_ids">
+                                    <tree string="History">
+                                        <field name="product_id"/>
+                                        <field name="quantity"/>
+                                        <field name="user_id"/>
+                                        <field name="des"/>
+                                        <field name="date_out"/>
+                                        <field name="location_id"/>
+                                        <field name="location_dest_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page string="History Factory">
+                                <field name="history_fact_ids">
+                                    <form string="History Factory">
+                                        <group>
+                                            <field name="stock_id"/>
+                                        </group>
+                                        <newline/>
+                                        <notebook>
+                                            <page string='Incoming Material'>
+                                                <field name="in_material_ids" nolabel="1"
+                                                       context="{'type' : 'in_material'}"/>
+                                            </page>
+                                            <page string='Delivery Material'>
+                                                <field name="out_material_ids" nolabel="1"
+                                                       context="{'type' : 'out_material'}"/>
+                                            </page>
+                                            <page string='Incomming Finished'>
+                                                <field name="in_finished_ids" nolabel="1"
+                                                       context="{'type' : 'in_finished'}"/>
+                                            </page>
+                                            <!-- <page string='Delivery Finished'>
+                                                <field name="out_finished_ids" nolabel="1" context="{'type' : 'out_finished'}"/>
+                                            </page> -->
+                                        </notebook>
+                                    </form>
+                                    <tree string="History Factory">
+                                        <field name="stock_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <separator string="Description" colspan="2"/>
+                        <field name="description"/>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="production_section_action_form" model="ir.actions.act_window">
+            <field name="name">Production Section</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">production.section</field>
+            <field name="domain">[('state','!=','cancel')]</field>
+            <field name="view_mode">form,tree,calendar,graph</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="production_section_search_view"/>
+            <field name="view_id" ref="production_section_list_view"/>
+        </record>
+
+        <menuitem action="production_section_action_form"
+                  id="menu_production_section_action_form"
+                  parent="menu_production" sequence="7"/>
+
+        =====================================================
+        =================== Production Material =============
+        =====================================================
+
+        <record id="production_material_search_view" model="ir.ui.view">
+            <field name="name">production.material.search</field>
+            <field name="model">production.material</field>
+            <field name="arch" type="xml">
+                <search string="Production Material">
+                    <field name="product_id"/>
+                    <field name="quantity"/>
+                    <field name="product_uom" invisible="1"/>
+                    <field name="date_in"/>
+                    <field name="qty_out"/>
+                    <field name="section_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="production_material_form_view" model="ir.ui.view">
+            <field name="name">production.material.form</field>
+            <field name="model">production.material</field>
+            <field name="arch" type="xml">
+                <form string="Production Material" version="7.0">
+                    <sheet>
+                        <group col="4" colspan="2">
+                            <field name="product_id" on_change="onchange_product_id(product_id, context)"/>
+                            <field name="product_custom_id"/>
+                            <field name="color_id"/>
+                            <field name="quantity"/>
+                            <field name="qty_kg" invisible="1"/>
+                            <field name="product_uom" invisible="1"/>
+                            <field name="price_unit"/>
+                            <field name="date_in"/>
+                            <field name="qty_out"/>
+                            <field name="stock_plan_id"/>
+                            <field name="partner_id" domain="[('supplier','=',True)]"/>
+                            <field name="material_of_section_id" invisible="1"/>
+                            <!--		                    <field name="section_id" on_change="onchange_section_id(section_id, context)"/>-->
+                        </group>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="production_material_list_view" model="ir.ui.view">
+            <field name="name">production.material.list</field>
+            <field name="model">production.material</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Production Material" editable="top">
+                    <!--                    <field name="section_id" on_change="onchange_section_id(section_id, context)"/>-->
+                    <field name="product_id" on_change="onchange_product_id(product_id, context)"/>
+                    <field name="product_custom_id"/>
+                    <field name="color_id"/>
+                    <field name="quantity" sum="Total Qty"/>
+                    <field name="qty_kg" invisible="1"/>
+                    <field name="product_uom" invisible="1"/>
+                    <field name="price_unit"/>
+                    <field name="date_in"/>
+                    <field name="stock_plan_id"/>
+                    <field name="partner_id" domain="[('supplier','=',True)]"/>
+                    <field name="material_of_section_id" invisible="1"/>
+                    <field name="qty_out" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="production_material_action_form" model="ir.actions.act_window">
+            <field name="name">Production Material</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">production.material</field>
+            <field name="view_mode">form,tree,calendar,graph</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="production_material_search_view"/>
+            <field name="view_id" ref="production_material_list_view"/>
+        </record>
+
+        <menuitem action="production_material_action_form"
+                  id="menu_production_material_action_form"
+                  parent="product.prod_config_main" sequence="17"/>
+
+
+        =====================================================
+        =================== Production Finished =============
+        =====================================================
+        <record id="production_finished_search_view" model="ir.ui.view">
+            <field name="name">production.finished.search</field>
+            <field name="model">production.finished</field>
+            <field name="arch" type="xml">
+                <search string="Production Finished">
+                    <field name="date_finished"/>
+                    <field name="quantity"/>
+                    <field name="qty_kg" invisible="1"/>
+                    <field name="product_uom" invisible="1"/>
+                    <field name="date_out"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="production_finished_form_view" model="ir.ui.view">
+            <field name="name">production.finished.form</field>
+            <field name="model">production.finished</field>
+            <field name="arch" type="xml">
+                <form string="Production Finished" version="7.0">
+                    <sheet>
+                        <group col="4" colspan="2">
+                            <field name="date_finished"/>
+                            <field name="quantity"/>
+                            <field name="product_custom_id"/>
+                            <field name="color_id"/>
+                            <field name="qty_kg" invisible="1"/>
+                            <!--<field name="product_uom" />-->
+                            <field name="date_out"/>
+                        </group>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="production_finished_list_view" model="ir.ui.view">
+            <field name="name">production.finished.list</field>
+            <field name="model">production.finished</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Production Finished" editable="top">
+                    <field name="date_finished"/>
+                    <field name="quantity" sum="Total Qty"/>
+                    <field name="product_custom_id"/>
+                    <field name="color_id"/>
+                    <field name="qty_kg" invisible="1"/>
+                    <!--<field name="product_uom" />-->
+                    <field name="date_out"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="production_finished_action_form" model="ir.actions.act_window">
+            <field name="name">Production Finished</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">production.finished</field>
+            <field name="view_mode">form,tree,calendar,graph</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="production_finished_search_view"/>
+            <field name="view_id" ref="production_finished_list_view"/>
+        </record>
+
+        <menuitem action="production_finished_action_form"
+                  id="menu_production_finished_action_form"
+                  parent="product.prod_config_main" sequence="18"/>
+
+
+        =====================================================
+        =================== History Factory =============
+        =====================================================
+
+
+        <record id="history_factory_detail_form_view" model="ir.ui.view">
+            <field name="name">history.factory.detail.form</field>
+            <field name="model">history.factory.detail</field>
+            <field name="arch" type="xml">
+                <form string="History Factory Detail" version="7.0">
+                    <sheet>
+                        <group col="4" colspan="2">
+                            <field name="product_id"/>
+                            <field name="quantity"/>
+							<field name="roll"/>
+                            <field name="date"/>
+                            <field name="user_id"/>
+                            <field name="type"/>
+                            <field name="warehouse_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="history_factory_detail_list_view" model="ir.ui.view">
+            <field name="name">history.factory.detail.list</field>
+            <field name="model">history.factory.detail</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="History Factory Detail" editable="top">
+                    <field name="product_id"/>
+                    <field name="quantity" sum="Total Qty"/>
+					<field name="roll"/>
+                    <field name="date"/>
+                    <field name="user_id"/>
+                    <field name="type"/>
+                    <field name="warehouse_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="history_factory_detail_action_form" model="ir.actions.act_window">
+            <field name="name">History Factory Detail</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">history.factory.detail</field>
+            <field name="view_mode">form,tree,calendar,graph</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="history_factory_detail_list_view"/>
+        </record>
+
+        <menuitem action="history_factory_detail_action_form"
+                  id="menu_history_factory_detail_action_form"
+                  parent="product.prod_config_main" sequence="20"/>
+
+    </data>
+</openerp>

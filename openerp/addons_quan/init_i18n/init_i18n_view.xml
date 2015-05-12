@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+	
+        <record id="init_i18n_view" model="ir.ui.view">
+            <field name="name">init.i18n.form</field>
+            <field name="model">init.i18n</field>
+            <field name="arch" type="xml">
+				<form string="Copy Translated File To i18n of addons" version="7.0">
+					<group colspan="4" cols="4" name="information">
+						<field name="name"/>
+						<button name="copy_translated_file_to_addons_i18n" string="Action" type="object" />
+					</group>
+				</form>
+			</field>
+        </record>
+		
+		<record id="init_i18n_action" model="ir.actions.act_window">
+            <field name="name">Copy Translated File To i18n of addons</field>
+            <field name="res_model">init.i18n</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+		
+		<menuitem id="init_i18n_menu" action="init_i18n_action" name="Action" parent="base.menu_custom"/>
+	</data>
+</openerp>

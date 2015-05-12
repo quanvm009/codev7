@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="init_view_stock_tree" model="ir.ui.view">
+            <field name="name">report.stock.move.tree</field>
+            <field name="model">report.stock.move</field>
+            <field name="inherit_id" ref="stock.view_stock_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_id']" position="after">
+                    <field name="color_id" invisible="1"/>
+                    <field name="sale_order_id" invisible="1"/>
+                    <field name="sale_line_id" invisible="1"/>
+                    <field name="section_id" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='day_diff1']" position="replace">
+                    <field name="day_diff1" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='day_diff']" position="replace">
+                    <field name="day_diff" invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='day_diff2']" position="replace">
+                    <field name="day_diff2" string="Delay(Days)" invisible="1"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="init_view_stock_search" model="ir.ui.view">
+            <field name="name">report.stock.move.search</field>
+            <field name="model">report.stock.move</field>
+            <field name="inherit_id" ref="stock.view_stock_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='group_partner']" position="after">
+                    <filter name="group_color" string="Color" icon="terp-stock_symbol-selection"
+                            context="{'group_by':'color_id'}"/>
+                    <filter name="group_so" string="SO Number" icon="terp-accessories-archiver"
+                            context="{'group_by':'sale_order_id'}"/>
+                    <filter name="group_sol" string="SO line Number" icon="terp-accessories-archiver"
+                            context="{'group_by':'sale_line_id'}"/>
+                    <filter name="group_section" string="Section" icon="terp-accessories-archiver"
+                            context="{'group_by':'section_id'}"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</openerp>

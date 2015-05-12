@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+        <record id="seq_check_number_customer" model="ir.sequence.type">
+            <field name="name">Customer</field>
+            <field name="code">res.partner</field>
+        </record>
+
+        <record id="seq_customer" model="ir.sequence">
+            <field name="name">Customer</field>
+            <field name="code">res.partner</field>
+            <field name="padding">6</field>
+            <field name="prefix">C</field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+
+        </record>
+        <record id="seq_check_number_supplier" model="ir.sequence.type">
+            <field name="name">Supplier</field>
+            <field name="code">res.partner.new</field>
+        </record>
+
+        <record id="seq_supplier" model="ir.sequence">
+            <field name="name">Supplier</field>
+            <field name="code">res.partner.new</field>
+            <field name="padding">6</field>
+            <field name="prefix">S</field>
+            <field name="number_increment">1</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</openerp>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        =====================================================
+        ================ CREATE Factory ===================
+        =====================================================
+
+        <record id="init_create_warehouse_vizard_form" model="ir.ui.view">
+            <field name="name">init.create.warehouse.vizard.form</field>
+            <field name="model">init.create.warehouse.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Create Factory" version="7.0">
+                    <label string="This wizard use to create warehouse and location"/>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                    <footer>
+                        <button name="action_create_warehouse" string="Create Factory" type="object"
+                                class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_init_create_warehouse_vizard" model="ir.actions.act_window">
+            <field name="name">Create New Factory</field>
+            <field name="res_model">init.create.warehouse.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="init_create_warehouse_vizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+        <!-- menu create warehouse -->
+        <menuitem
+                name="Create New Factory"
+                id="init_create_warehouse_wizard_menu"
+                parent="base.menu_base_config"
+                action="action_init_create_warehouse_vizard"
+                />
+    </data>
+</openerp>

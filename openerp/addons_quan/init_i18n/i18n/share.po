@@ -1,0 +1,601 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* share
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20130527-231152\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-13 04:43+0000\n"
+"PO-Revision-Date: 2013-06-13 04:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:841
+#, python-format
+msgid "Invitation to collaborate about %s"
+msgstr "Mời cộng tác %s"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:779
+#, python-format
+msgid "The share engine has not been able to fetch a record_id for your invitation."
+msgstr "The share engine has not been able to fetch a record_id for your invitation."
+
+#. module: share
+#: view:share.wizard:0
+msgid "Include an Optional Personal Message"
+msgstr "Tin nhắn riêng kèm theo"
+
+#. module: share
+#: field:share.wizard,embed_option_title:0
+msgid "Display title"
+msgstr "Tiêu đề hiển thị"
+
+#. module: share
+#: view:share.wizard:0
+msgid "Access granted!"
+msgstr "Đã cấp quyền truy cập!"
+
+#. module: share
+#: field:share.wizard,record_name:0
+msgid "Record name"
+msgstr "Tên bản ghi"
+
+#. module: share
+#: help:share.wizard,message:0
+msgid "An optional personal message, to be included in the email notification."
+msgstr "Tin nhắn riêng kèm theo, được thêm vào trong email gửi đi."
+
+#. module: share
+#: field:share.wizard,user_type:0
+msgid "Sharing method"
+msgstr "Chia sẻ theo"
+
+#. module: share
+#: field:share.wizard,name:0
+msgid "Share Title"
+msgstr "Tiêu đề"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:847
+#: code:addons/share/wizard/share_wizard.py:876
+#, python-format
+msgid "The documents are not attached, you can view them online directly on my OpenERP server at:\n"
+"    %s\n"
+"\n"
+""
+msgstr "Tài liệu, chứng từ không được đính kèm theo, bạn có thể xem trực tuyến trên máy chủ OpenERP của tôi tại:\n"
+"    %s\n"
+"\n"
+""
+
+#. module: share
+#: model:ir.module.category,name:share.module_category_share
+msgid "Sharing"
+msgstr "Chia sẻ"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:842
+#: code:addons/share/wizard/share_wizard.py:874
+#, python-format
+msgid "Hello,\n"
+"\n"
+""
+msgstr "Xin chào,\n"
+"\n"
+""
+
+#. module: share
+#: field:share.wizard,share_root_url:0
+msgid "Share Access URL"
+msgstr "URL để truy cập"
+
+#. module: share
+#: field:share.wizard,email_1:0
+#: field:share.wizard,email_2:0
+#: field:share.wizard,email_3:0
+msgid "New user email"
+msgstr "Email người dùng mới"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:886
+#, python-format
+msgid "You may use your current login (%s) and password to view them.\n"
+""
+msgstr "Bạn có thể dùng tên đăng nhập và mật khẩu của bạn (%s) để xem tài liệu."
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:620
+#, python-format
+msgid "(Modified)"
+msgstr "(Modified)"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:664
+#, python-format
+msgid "You must be a member of the Share/User group to use the share wizard."
+msgstr "Bạn phải là thành viên của nhóm Share/User để dùng hộp thoại chia sẻ"
+
+#. module: share
+#. openerp-web
+#: code:addons/share/static/src/js/share.js:63
+#, python-format
+msgid "Embed"
+msgstr "Nhúng vào"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:598
+#, python-format
+msgid "Sharing filter created by user %s (%s) for group %s"
+msgstr "Bộ lọc được tạo bởi người dùng %s (%s) cho nhóm %s"
+
+#. module: share
+#: field:share.wizard,embed_url:0
+#: field:share.wizard.result.line,share_url:0
+msgid "Share URL"
+msgstr "URL chia sẻ"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:848
+#: code:addons/share/wizard/share_wizard.py:880
+#, python-format
+msgid "These are your credentials to access this protected area:\n"
+""
+msgstr "Đây là những thông tin để bạn truy cập vào máy chủ chứa tài liệu:\n"
+""
+
+#. module: share
+#: view:share.wizard:0
+msgid "Access info"
+msgstr "Thông tin truy cập"
+
+#. module: share
+#. openerp-web
+#: code:addons/share/static/src/js/share.js:60
+#: view:share.wizard:0
+#, python-format
+msgid "Share"
+msgstr "Chia sẻ"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:570
+#, python-format
+msgid "(Duplicated for modified sharing permissions)"
+msgstr "(Duplicated for modified sharing permissions)"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:668
+#, python-format
+msgid "Please indicate the emails of the persons to share with, one per line."
+msgstr "Vui lòng nhập vào email của những người mà bạn muốn chia sẻ, mỗi dòng một email."
+
+#. module: share
+#: help:share.wizard,domain:0
+msgid "Optional domain for further data filtering"
+msgstr "Các điều kiện để lọc dữ liệu"
+
+#. module: share
+#: view:share.wizard:0
+msgid "Next"
+msgstr "Tiếp theo"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:661
+#, python-format
+msgid "Action and Access Mode are required to create a shared access."
+msgstr "Action and Access Mode are required to create a shared access."
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:849
+#: code:addons/share/wizard/share_wizard.py:881
+#, python-format
+msgid "Username"
+msgstr "Tên người dùng"
+
+#. module: share
+#: view:share.wizard:0
+msgid "Sharing Options"
+msgstr "Tùy chọn chia sẻ"
+
+#. module: share
+#. openerp-web
+#: code:addons/share/static/src/xml/share.xml:9
+#, python-format
+msgid "Invite"
+msgstr "Mời"
+
+#. module: share
+#: view:share.wizard:0
+msgid "Embedded code options"
+msgstr "Tùy chọn mã nhúng"
+
+#. module: share
+#: view:share.wizard:0
+msgid "Configuration"
+msgstr "Cấu hình"
+
+#. module: share
+#: view:share.wizard:0
+msgid "Please select the action that opens the screen containing the data you want to share."
+msgstr "Please select the action that opens the screen containing the data you want to share."
+
+#. module: share
+#: field:res.groups,share:0
+msgid "Share Group"
+msgstr "Share Group"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:834
+#: code:addons/share/wizard/share_wizard.py:865
+#, python-format
+msgid "Email required"
+msgstr "Yêu cầu email"
+
+#. module: share
+#: view:share.wizard:0
+msgid "Optionally, you may specify an additional domain restriction that will be applied to the shared data."
+msgstr "Optionally, you may specify an additional domain restriction that will be applied to the shared data."
+
+#. module: share
+#: view:res.groups:0
+msgid "Non-Share Groups"
+msgstr "Non-Share Groups"
+
+#. module: share
+#: view:share.wizard:0
+msgid "An email notification with instructions has been sent to the following people:"
+msgstr "Một email thông báo đã được gửi tới những người sau đây:"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:77
+#, python-format
+msgid "Direct link or embed code"
+msgstr "Link trực tiếp hoặc mã nhúng"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:855
+#: code:addons/share/wizard/share_wizard.py:889
+#, python-format
+msgid "OpenERP is a powerful and user-friendly suite of Business Applications (CRM, Sales, HR, etc.)\n"
+"It is open source and can be found on http://www.openerp.com."
+msgstr "OpenERP là một hệ thống ứng dụng kinh doanh mạnh mẽ và thân thiện (CRM, Sales, HR, ...)\n"
+"OpenERP là hệ thống mã nguồn mở, bạn có thể xem thêm tại http://www.openerp.com."
+
+#. module: share
+#: field:share.wizard,action_id:0
+msgid "Action to share"
+msgstr "Action to share"
+
+#. module: share
+#: help:share.wizard,record_name:0
+msgid "Name of the shared record, if sharing a precise record"
+msgstr "Name of the shared record, if sharing a precise record"
+
+#. module: share
+#: field:res.users,share:0
+msgid "Share User"
+msgstr "Share User"
+
+#. module: share
+#: field:share.wizard.result.line,user_id:0
+msgid "unknown"
+msgstr "unknown"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:61
+#: code:addons/share/wizard/share_wizard.py:656
+#, python-format
+msgid "Sharing access cannot be created."
+msgstr "Sharing access cannot be created."
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:779
+#, python-format
+msgid "Record id not found"
+msgstr "Record id not found"
+
+#. module: share
+#: help:res.groups,share:0
+msgid "Group created to set access rights for sharing data with some users."
+msgstr "Group created to set access rights for sharing data with some users."
+
+#. module: share
+#: view:res.groups:0
+msgid "Share Groups"
+msgstr "Share Groups"
+
+#. module: share
+#: help:share.wizard,action_id:0
+msgid "The action that opens the screen containing the data you wish to share."
+msgstr "The action that opens the screen containing the data you wish to share."
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:545
+#, python-format
+msgid "(Copy for sharing)"
+msgstr "(Copy for sharing)"
+
+#. module: share
+#: field:share.wizard.result.line,newly_created:0
+msgid "Newly created"
+msgstr "Vừa mới tạo"
+
+#. module: share
+#: help:share.wizard,name:0
+msgid "Title for the share (displayed to users as menu and shortcut name)"
+msgstr "Title for the share (displayed to users as menu and shortcut name)"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:635
+#, python-format
+msgid "Indirect sharing filter created by user %s (%s) for group %s"
+msgstr "Indirect sharing filter created by user %s (%s) for group %s"
+
+#. module: share
+#: help:share.wizard,share_root_url:0
+msgid "Main access page for users that are granted shared access"
+msgstr "Main access page for users that are granted shared access"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:206
+#, python-format
+msgid "You must configure your email address in the user preferences before using the Share button."
+msgstr "Bạn phải cấu hình địa chỉ email của bạn trong chỗ Tùy Chỉnh trước khi dùng nút Chia sẻ."
+
+#. module: share
+#: model:res.groups,name:share.group_share_user
+msgid "User"
+msgstr "Người dùng"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:657
+#, python-format
+msgid "Sorry, the current screen and filter you are trying to share are not supported at the moment.\n"
+"You may want to try a simpler filter."
+msgstr "Sorry, the current screen and filter you are trying to share are not supported at the moment.\n"
+"You may want to try a simpler filter."
+
+#. module: share
+#: view:share.wizard:0
+msgid "Use this link"
+msgstr "Dùng link này"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:851
+#: code:addons/share/wizard/share_wizard.py:883
+#, python-format
+msgid "Database"
+msgstr "Cơ sở dữ liệu"
+
+#. module: share
+#: view:share.wizard:0
+msgid "Share with these People (one email per line)"
+msgstr "Chia sẻ với những người này (mỗi dòng một email)"
+
+#. module: share
+#: field:share.wizard,domain:0
+msgid "Domain"
+msgstr "Domain"
+
+#. module: share
+#: view:res.groups:0
+msgid "{'search_default_no_share':1}"
+msgstr "{'search_default_no_share':1}"
+
+#. module: share
+#: view:share.wizard:0
+#: field:share.wizard,result_line_ids:0
+msgid "Summary"
+msgstr "Tóm tắt"
+
+#. module: share
+#: help:share.wizard,embed_code:0
+msgid "Embed this code in your documents to provide a link to the shared document."
+msgstr "Nhúng đoạn mã này vào những nơi mà bạn muốn chia sẻ"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:512
+#, python-format
+msgid "Copied access for sharing"
+msgstr "Copied access for sharing"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:816
+#, python-format
+msgid "Invitation"
+msgstr "Lời mời"
+
+#. module: share
+#: model:ir.actions.act_window,name:share.action_share_wizard_step1
+msgid "Share your documents"
+msgstr "Chia Sẻ Tài Liệu Của Bạn"
+
+#. module: share
+#: view:share.wizard:0
+msgid "Or insert the following code where you want to embed your documents"
+msgstr "Hoặc chèn đoạn mã sau vào những nơi mà bạn muốn chia sẻ tài liệu."
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:885
+#, python-format
+msgid "The documents have been automatically added to your current OpenERP documents.\n"
+""
+msgstr "Các tài liệu đã được tự động thêm vào trong tài liệu OpenERP của bạn."
+
+#. module: share
+#: model:ir.model,name:share.model_share_wizard_result_line
+msgid "share.wizard.result.line"
+msgstr "share.wizard.result.line"
+
+#. module: share
+#: field:share.wizard,embed_code:0
+msgid "Code"
+msgstr "Mã"
+
+#. module: share
+#: help:share.wizard,user_type:0
+msgid "Select the type of user(s) you would like to share data with."
+msgstr "Chọn loại người dùng mà bạn muốn chia sẻ dữ liệu với họ."
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:843
+#, python-format
+msgid "I have shared %s (%s) with you!\n"
+"\n"
+""
+msgstr "Tôi đã chia sẻ %s (%s) với bạn!"
+
+#. module: share
+#: field:share.wizard,view_type:0
+msgid "Current View Type"
+msgstr "Current View Type"
+
+#. module: share
+#: selection:share.wizard,access_mode:0
+msgid "Can view"
+msgstr "Có thể xem"
+
+#. module: share
+#: selection:share.wizard,access_mode:0
+msgid "Can edit"
+msgstr "Có thể chỉnh sửa"
+
+#. module: share
+#: view:share.wizard:0
+msgid "Cancel"
+msgstr "Hủy bỏ"
+
+#. module: share
+#: help:res.users,share:0
+msgid "External user with limited access, created only for the purpose of sharing data."
+msgstr "Người dùng ngoài hệ thống với một ít quyền truy xuất; được tạo chỉ với mục đích chia sẻ dữ liệu."
+
+#. module: share
+#: model:ir.actions.act_window,name:share.action_share_wizard
+#: model:ir.model,name:share.model_share_wizard
+#: field:share.wizard.result.line,share_wizard_id:0
+msgid "Share Wizard"
+msgstr "Hộp Thoại Chia Sẻ"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:792
+#, python-format
+msgid "Shared access created!"
+msgstr "Shared access created!"
+
+#. module: share
+#: model:res.groups,comment:share.group_share_user
+msgid "\n"
+"Members of this groups have access to the sharing wizard, which allows them to invite external users to view or edit some of their documents."
+msgstr "Các thành viên của những nhóm này có quyền mời người dùng ngoài hệ thống vào xem hoặc chỉnh sửa tài liệu của họ thông qua hộp thoại chia sẻ."
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:852
+#, python-format
+msgid "The documents have been automatically added to your subscriptions.\n"
+"\n"
+""
+msgstr "Tài liệu đã được thêm tự động vào đăng ký của bạn."
+
+#. module: share
+#: model:ir.model,name:share.model_res_users
+msgid "Users"
+msgstr "Người dùng"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:875
+#, python-format
+msgid "I've shared %s with you!\n"
+"\n"
+""
+msgstr "Tôi vừa chia sẻ %s với bạn!"
+
+#. module: share
+#: model:ir.model,name:share.model_res_groups
+msgid "Access Groups"
+msgstr "Nhóm truy xuất"
+
+#. module: share
+#: field:share.wizard,invite:0
+msgid "Invite users to OpenSocial record"
+msgstr "Invite users to OpenSocial record"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:850
+#: code:addons/share/wizard/share_wizard.py:882
+#: field:share.wizard.result.line,password:0
+#, python-format
+msgid "Password"
+msgstr "Mật khẩu"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:77
+#: field:share.wizard,new_users:0
+#, python-format
+msgid "Emails"
+msgstr "Email"
+
+#. module: share
+#: field:share.wizard,embed_option_search:0
+msgid "Display search view"
+msgstr "Hiển thị màn hình tìm kiếm"
+
+#. module: share
+#: field:share.wizard,message:0
+msgid "Personal Message"
+msgstr "Tin nhắn riêng"
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:834
+#: code:addons/share/wizard/share_wizard.py:865
+#, python-format
+msgid "The current user must have an email address configured in User Preferences to be able to send outgoing emails."
+msgstr "Người dùng hiện tại phải có địa chỉ email được cấu hình trong chỗ Tùy Chỉnh mới có thể gửi email ra ngoài."
+
+#. module: share
+#: code:addons/share/wizard/share_wizard.py:205
+#, python-format
+msgid "No email address configured"
+msgstr "Địa chỉ email chưa được cấu hình"
+
+#. module: share
+#: field:share.wizard.result.line,login:0
+msgid "Login"
+msgstr "Đăng nhập"
+
+#. module: share
+#: view:res.users:0
+msgid "Regular users only (no share user)"
+msgstr "Người dùng trong hệ thống"
+
+#. module: share
+#: field:share.wizard,access_mode:0
+msgid "Access Mode"
+msgstr "Có quyền"
+
+#. module: share
+#: view:share.wizard:0
+msgid "Sharing: preparation"
+msgstr "Sharing: preparation"
+
+#. module: share
+#: model:ir.model,name:share.model_ir_model_access
+msgid "ir.model.access"
+msgstr "ir.model.access"
+
+#. module: share
+#: view:share.wizard:0
+msgid "or"
+msgstr "hoặc"
+
+#. module: share
+#: help:share.wizard,access_mode:0
+msgid "Access rights to be granted on the shared documents."
+msgstr "Quyền truy cập vào các tài liệu chia sẻ đã được cấp."
+

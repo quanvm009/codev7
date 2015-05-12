@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="init_product_product_form_inherit_dn">
+            <field name="name">init.product.product.form.inherit.dn</field>
+            <field name="model">product.product</field>
+            <field name="type">form</field>
+            <field name="priority">25</field>
+            <field name="inherit_id" ref="product.product_normal_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@string='Information']/group/group[1]/field[@name='list_price']"
+                       position="after">
+                    <field name="weight_prod"/>
+                    <field name="width"/>
+                    <field name="color_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_category_form_view" model="ir.ui.view">
+            <field name="name">init.product.category.form</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='parent_id']" position="after">
+                    <field name="finish"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,19 @@
+# -*- encoding: utf-8 -*-
+
+import create_po_wizard
+import create_out_material_pre_wizard
+import create_out_material_wizard
+import create_in_finished_wizard
+import stock_invoice_onshipping
+import wizard_pl_report
+import wizard_print_order_tracking
+import wizard_order_report
+import section_wizard_report
+import wizard_order_report
+import create_out_finished_wizard
+import section_wizard_report
+import invoice_factory_wizard
+import init_create_warehouse_wizard
+import stock_partial_picking
+import split_move_wizard
+import edit_sale_order_wizard

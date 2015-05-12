@@ -1,0 +1,562 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* sale_stock
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 7.0-20130527-231152\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-13 04:43+0000\n"
+"PO-Revision-Date: 2013-06-13 04:43+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_stock
+#: help:sale.config.settings,group_invoice_deli_orders:0
+msgid "To allow your salesman to make invoices for Delivery Orders using the menu 'Deliveries to Invoice'."
+msgstr "Cho phép NVKD tạo hóa đơn dựa vào phiếu giao hàng bằng cách dùng menu 'Tạo hóa đơn dựa vào phiếu giao hàng'"
+
+#. module: sale_stock
+#: model:process.node,name:sale_stock.process_node_deliveryorder0
+msgid "Delivery Order"
+msgstr "Yêu cầu Giao hàng"
+
+#. module: sale_stock
+#: model:ir.actions.act_window,name:sale_stock.outgoing_picking_list_to_invoice
+#: model:ir.ui.menu,name:sale_stock.menu_action_picking_list_to_invoice
+msgid "Deliveries to Invoice"
+msgstr "Phiếu Giao Hàng"
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:570
+#, python-format
+msgid "Picking Information ! : "
+msgstr "Thông tin lô hàng ! : "
+
+#. module: sale_stock
+#: model:process.node,name:sale_stock.process_node_packinglist0
+msgid "Pick List"
+msgstr "Danh Sách Lô Hàng"
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:565
+#, python-format
+msgid "You selected a quantity of %d Units.\n"
+"But it's not compatible with the selected packaging.\n"
+"Here is a proposition of quantities according to the packaging:\n"
+"EAN: %s Quantity: %s Type of ul: %s"
+msgstr "You selected a quantity of %d Units.\n"
+"But it's not compatible with the selected packaging.\n"
+"Here is a proposition of quantities according to the packaging:\n"
+"EAN: %s Quantity: %s Type of ul: %s"
+
+#. module: sale_stock
+#: model:process.node,note:sale_stock.process_node_packinglist0
+msgid "Document of the move to the output or to the customer."
+msgstr "Document of the move to the output or to the customer."
+
+#. module: sale_stock
+#: field:sale.config.settings,group_multiple_shops:0
+msgid "Manage multiple shops"
+msgstr "Quản lý nhiều cửa hàng"
+
+#. module: sale_stock
+#: model:process.transition.action,name:sale_stock.process_transition_action_validate0
+msgid "Validate"
+msgstr "Xác nhận"
+
+#. module: sale_stock
+#: view:sale.order:0
+msgid "Cancel Order"
+msgstr "Hủy đơn hàng"
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:209
+#, python-format
+msgid "You must first cancel all delivery order(s) attached to this sales order."
+msgstr "Bạn phải hủy tất cả các phiếu giao hàng liên quan tới đơn hàng này."
+
+#. module: sale_stock
+#: model:process.transition,name:sale_stock.process_transition_saleprocurement0
+msgid "Create Procurement Order"
+msgstr "Tạo phiếu cung ứng"
+
+#. module: sale_stock
+#: field:stock.picking.out,sale_id:0
+msgid "Sale Order"
+msgstr "Đơn bán hàng"
+
+#. module: sale_stock
+#: model:process.transition,note:sale_stock.process_transition_saleorderprocurement0
+msgid "For every sales order line, a procurement order is created to supply the sold product."
+msgstr "For every sales order line, a procurement order is created to supply the sold product."
+
+#. module: sale_stock
+#: field:sale.order,picking_policy:0
+msgid "Shipping Policy"
+msgstr "Chính sách giao hàng"
+
+#. module: sale_stock
+#: model:ir.ui.menu,name:sale_stock.menu_action_shop_form
+msgid "Shop"
+msgstr "Cửa Hàng"
+
+#. module: sale_stock
+#: model:process.node,note:sale_stock.process_node_saleorderprocurement0
+msgid "Drives procurement orders for every sales order line."
+msgstr "Drives procurement orders for every sales order line."
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_stock_move
+msgid "Stock Move"
+msgstr "Stock Move"
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:163
+#, python-format
+msgid "Invalid Action!"
+msgstr "Tác vụ không hợp lệ!"
+
+#. module: sale_stock
+#: field:sale.config.settings,module_project_timesheet:0
+msgid "Project Timesheet"
+msgstr "Bảng Chấm Công Dự Án"
+
+#. module: sale_stock
+#: field:sale.config.settings,group_sale_delivery_address:0
+msgid "Allow a different address for delivery and invoicing "
+msgstr "Cho phép địa chỉ giao hàng khác với địa chỉ ghi trên hóa đơn"
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:572
+#: code:addons/sale_stock/sale_stock.py:623
+#, python-format
+msgid "Configuration Error!"
+msgstr "Lỗi cấu hình!"
+
+#. module: sale_stock
+#: model:process.node,name:sale_stock.process_node_saleprocurement0
+msgid "Procurement Order"
+msgstr "Lệnh cung ứng"
+
+#. module: sale_stock
+#: model:ir.actions.act_window,name:sale_stock.res_partner_rule_children
+msgid "Contact Details"
+msgstr "Chi Tiết Liên Hệ"
+
+#. module: sale_stock
+#: selection:sale.config.settings,default_order_policy:0
+msgid "Invoice based on deliveries"
+msgstr "Hóa đơn theo phiếu giao hàng"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_sale_order
+#: field:stock.picking,sale_id:0
+msgid "Sales Order"
+msgstr "Đơn bán hàng"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_stock_picking_out
+msgid "Delivery Orders"
+msgstr "Delivery Orders"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_sale_order_line
+#: field:stock.move,sale_line_id:0
+msgid "Sales Order Line"
+msgstr "Dòng Đơn Hàng"
+
+#. module: sale_stock
+#: model:process.transition,note:sale_stock.process_transition_packing0
+msgid "The Pick List form is created as soon as the sales order is confirmed, in the same time as the procurement order. It represents the assignment of parts to the sales order. There is 1 pick list by sales order line which evolves with the availability of parts."
+msgstr "The Pick List form is created as soon as the sales order is confirmed, in the same time as the procurement order. It represents the assignment of parts to the sales order. There is 1 pick list by sales order line which evolves with the availability of parts."
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_stock_picking
+msgid "Picking List"
+msgstr "Picking List"
+
+#. module: sale_stock
+#: field:sale.shop,warehouse_id:0
+msgid "Warehouse"
+msgstr "Kho hàng"
+
+#. module: sale_stock
+#: model:process.transition.action,name:sale_stock.process_transition_action_forceassignation0
+msgid "Force Assignation"
+msgstr "Buộc phải uỷ thác"
+
+#. module: sale_stock
+#: field:sale.config.settings,default_order_policy:0
+msgid "The default invoicing method is"
+msgstr "Phương thức tạo hóa đơn mặc định là"
+
+#. module: sale_stock
+#: field:sale.order.line,delay:0
+msgid "Delivery Lead Time"
+msgstr "Thời gian giao hàng"
+
+#. module: sale_stock
+#: model:process.node,note:sale_stock.process_node_deliveryorder0
+msgid "Document of the move to the customer."
+msgstr "Chứng từ để giao cho khách hàng."
+
+#. module: sale_stock
+#: view:sale.order:0
+msgid "View Delivery Order"
+msgstr "Xem Phiếu Giao Hàng"
+
+#. module: sale_stock
+#: field:sale.order.line,move_ids:0
+msgid "Inventory Moves"
+msgstr "Nhập xuất kho"
+
+#. module: sale_stock
+#: view:sale.config.settings:0
+msgid "Default Options"
+msgstr "Tùy Chọn Mặc Định"
+
+#. module: sale_stock
+#: field:sale.config.settings,module_project_mrp:0
+msgid "Project MRP"
+msgstr "Project MRP"
+
+#. module: sale_stock
+#: model:process.transition,note:sale_stock.process_transition_invoiceafterdelivery0
+msgid "If the sale order was set to create the invoice 'On Delivery Order', then an invoice is automatically created based on what you delivered. If you rather want to create your invoice based on your sale order, you can set the sale order to create invoice 'On Demand', then track and process the sales order that have been fully delivered and invoice them from there."
+msgstr "If the sale order was set to create the invoice 'On Delivery Order', then an invoice is automatically created based on what you delivered. If you rather want to create your invoice based on your sale order, you can set the sale order to create invoice 'On Demand', then track and process the sales order that have been fully delivered and invoice them from there."
+
+#. module: sale_stock
+#: field:sale.order.line,procurement_id:0
+msgid "Procurement"
+msgstr "Cung Ứng"
+
+#. module: sale_stock
+#: view:sale.report:0
+#: field:sale.report,shipped:0
+#: field:sale.report,shipped_qty_1:0
+msgid "Shipped"
+msgstr "Đã giao"
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:265
+#, python-format
+msgid "invalid mode for test_state"
+msgstr "hình thức không hợp lệ cho trạng thái kiểm tra"
+
+#. module: sale_stock
+#: model:process.transition,note:sale_stock.process_transition_saleprocurement0
+msgid "A procurement order is automatically created as soon as a sales order is confirmed or as the invoice is paid. It drives the purchasing and the production of products regarding to the rules and to the sales order's parameters. "
+msgstr "A procurement order is automatically created as soon as a sales order is confirmed or as the invoice is paid. It drives the purchasing and the production of products regarding to the rules and to the sales order's parameters. "
+
+#. module: sale_stock
+#: help:sale.config.settings,group_mrp_properties:0
+msgid "Allows you to tag sales order lines with properties."
+msgstr "Allows you to tag sales order lines with properties."
+
+#. module: sale_stock
+#: field:sale.config.settings,group_invoice_deli_orders:0
+msgid "Generate invoices after and based on delivery orders"
+msgstr "Tạo hóa đơn sau khi giao hàng xong"
+
+#. module: sale_stock
+#: field:sale.config.settings,module_delivery:0
+msgid "Allow adding shipping costs"
+msgstr "Cho phép thêm vào chi phí vận chuyển"
+
+#. module: sale_stock
+#: view:sale.order:0
+msgid "days"
+msgstr "ngày"
+
+#. module: sale_stock
+#: field:sale.order.line,product_packaging:0
+msgid "Packaging"
+msgstr "Đóng gói"
+
+#. module: sale_stock
+#: help:sale.order,incoterm:0
+msgid "International Commercial Terms are a series of predefined commercial terms used in international transactions."
+msgstr "International Commercial Terms are a series of predefined commercial terms used in international transactions."
+
+#. module: sale_stock
+#: help:sale.config.settings,module_delivery:0
+msgid "Allows you to add delivery methods in sales orders and delivery orders.\n"
+"                You can define your own carrier and delivery grids for prices.\n"
+"                This installs the module delivery."
+msgstr "Allows you to add delivery methods in sales orders and delivery orders.\n"
+"                You can define your own carrier and delivery grids for prices.\n"
+"                This installs the module delivery."
+
+#. module: sale_stock
+#: field:sale.config.settings,default_picking_policy:0
+msgid "Deliver all at once when all products are available."
+msgstr "Giao tất cả một lần khi đủ hàng"
+
+#. module: sale_stock
+#: model:res.groups,name:sale_stock.group_invoice_deli_orders
+msgid "Enable Invoicing Delivery orders"
+msgstr "Cho phép tạo Hóa Đơn từ Phiếu Giao Hàng"
+
+#. module: sale_stock
+#: field:res.company,security_lead:0
+msgid "Security Days"
+msgstr "Số ngày để kiểm tra"
+
+#. module: sale_stock
+#: model:process.transition,name:sale_stock.process_transition_saleorderprocurement0
+msgid "Procurement of sold material"
+msgstr "Cung ứng cho các nguyên vật liệu đã bán"
+
+#. module: sale_stock
+#: help:sale.order,picking_policy:0
+msgid "Pick 'Deliver each product when available' if you allow partial delivery."
+msgstr "Chọn 'Giao từng sản phẩm khi đủ hàng' nếu bạn cho phép giao từng phần."
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:208
+#, python-format
+msgid "Cannot cancel sales order!"
+msgstr "Không thể hủy đơn hàng này!"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_sale_shop
+msgid "Sales Shop"
+msgstr "Cửa Hàng"
+
+#. module: sale_stock
+#: help:sale.order,shipped:0
+msgid "It indicates that the sales order has been delivered. This field is updated only after the scheduler(s) have been launched."
+msgstr "It indicates that the sales order has been delivered. This field is updated only after the scheduler(s) have been launched."
+
+#. module: sale_stock
+#: field:sale.order.line,property_ids:0
+msgid "Properties"
+msgstr "Đặc tính"
+
+#. module: sale_stock
+#: help:res.company,security_lead:0
+msgid "Margin of error for dates promised to customers. Products will be scheduled for procurement and delivery that many days earlier than the actual promised date, to cope with unexpected delays in the supply chain."
+msgstr "Margin of error for dates promised to customers. Products will be scheduled for procurement and delivery that many days earlier than the actual promised date, to cope with unexpected delays in the supply chain."
+
+#. module: sale_stock
+#: field:sale.config.settings,group_mrp_properties:0
+msgid "Product properties on order lines"
+msgstr "Product properties on order lines"
+
+#. module: sale_stock
+#: help:sale.config.settings,default_order_policy:0
+msgid "You can generate invoices based on sales orders or based on shippings."
+msgstr "Bạn có thể sinh ra các hóa đơn dựa vào đơn hàng hoặc là phiếu giao hàng."
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_sale_report
+msgid "Sales Orders Statistics"
+msgstr "Thống Kê Đơn Hàng"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_res_company
+msgid "Companies"
+msgstr "Công Ty"
+
+#. module: sale_stock
+#: help:sale.config.settings,task_work:0
+msgid "Lets you transfer the entries under tasks defined for Project Management to\n"
+"                the Timesheet line entries for particular date and particular user  with the effect of creating, editing and deleting either ways\n"
+"                and to automatically creates project tasks from procurement lines.\n"
+"                This installs the modules project_timesheet and project_mrp."
+msgstr "Lets you transfer the entries under tasks defined for Project Management to\n"
+"                the Timesheet line entries for particular date and particular user  with the effect of creating, editing and deleting either ways\n"
+"                and to automatically creates project tasks from procurement lines.\n"
+"                This installs the modules project_timesheet and project_mrp."
+
+#. module: sale_stock
+#: help:sale.config.settings,group_sale_delivery_address:0
+msgid "Allows you to specify different delivery and invoice addresses on a sales order."
+msgstr "Cho phép bạn chỉ định địa chỉ giao hàng và hóa đơn khác nhau trong một đơn hàng."
+
+#. module: sale_stock
+#: model:process.node,note:sale_stock.process_node_saleprocurement0
+msgid "One Procurement order for each sales order line and for each of the components."
+msgstr "One Procurement order for each sales order line and for each of the components."
+
+#. module: sale_stock
+#: model:process.transition.action,name:sale_stock.process_transition_action_assign0
+msgid "Assign"
+msgstr "Chỉ định"
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:618
+#, python-format
+msgid "Not enough stock ! : "
+msgstr "Không đủ hàng ! : "
+
+#. module: sale_stock
+#: help:sale.order.line,delay:0
+msgid "Number of days between the order confirmation and the shipping of the products to the customer"
+msgstr "Number of days between the order confirmation and the shipping of the products to the customer"
+
+#. module: sale_stock
+#: help:sale.config.settings,default_picking_policy:0
+msgid "Sales order by default will be configured to deliver all products at once instead of delivering each product when it is available. This may have an impact on the shipping price."
+msgstr "Sales order by default will be configured to deliver all products at once instead of delivering each product when it is available. This may have an impact on the shipping price."
+
+#. module: sale_stock
+#: selection:sale.config.settings,default_order_policy:0
+msgid "Invoice based on sales orders"
+msgstr "Hóa đơn theo đơn bán hàng"
+
+#. module: sale_stock
+#: model:process.node,name:sale_stock.process_node_invoiceafterdelivery0
+msgid "Invoice"
+msgstr "Hóa đơn"
+
+#. module: sale_stock
+#: model:process.transition.action,name:sale_stock.process_transition_action_cancel1
+#: model:process.transition.action,name:sale_stock.process_transition_action_cancel2
+msgid "Cancel"
+msgstr "Hủy"
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:163
+#, python-format
+msgid "In order to delete a confirmed sales order, you must cancel it.\n"
+"To do so, you must first cancel related picking for delivery orders."
+msgstr "Để xóa một đơn hàng đã xác nhận, bạn phải hủy nó trước.\n"
+"Để hủy được thì bạn phải hủy các phiếu giao hàng liên quan tới nó trước."
+
+#. module: sale_stock
+#: field:sale.order.line,number_packages:0
+msgid "Number Packages"
+msgstr "Số lượng gói hàng"
+
+#. module: sale_stock
+#: field:sale.order,shipped:0
+msgid "Delivered"
+msgstr "Đã giao hàng"
+
+#. module: sale_stock
+#: model:process.transition,name:sale_stock.process_transition_invoiceafterdelivery0
+msgid "Create Invoice"
+msgstr "Tạo Hóa Đơn"
+
+#. module: sale_stock
+#: field:sale.config.settings,task_work:0
+msgid "Prepare invoices based on task's activities"
+msgstr "Tạo hóa đơn dựa vào các công việc đã làm"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_sale_advance_payment_inv
+msgid "Sales Advance Payment Invoice"
+msgstr "Hóa Đơn Ứng Trước"
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:523
+#, python-format
+msgid "You must first cancel stock moves attached to this sales order line."
+msgstr "Bạn phải hủy các dòng nhập xuất liên quan tới dòng hàng này trước."
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:561
+#, python-format
+msgid "(n/a)"
+msgstr "(n/a)"
+
+#. module: sale_stock
+#: field:sale.order,incoterm:0
+msgid "Incoterm"
+msgstr "Điều khoản TMQT"
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:522
+#, python-format
+msgid "Cannot cancel sales order line!"
+msgstr "Không thể hủy dòng hàng này!"
+
+#. module: sale_stock
+#: model:process.transition.action,name:sale_stock.process_transition_action_cancelassignation0
+msgid "Cancel Assignation"
+msgstr "Hủy phân phối"
+
+#. module: sale_stock
+#: model:process.node,note:sale_stock.process_node_invoiceafterdelivery0
+msgid "Based on the shipped or on the ordered quantities."
+msgstr "Theo số lượng đã giao hoặc số lượng đã đặt"
+
+#. module: sale_stock
+#: selection:sale.order,picking_policy:0
+msgid "Deliver all products at once"
+msgstr "Giao tất cả sản phẩm một lần"
+
+#. module: sale_stock
+#: field:sale.order,picking_ids:0
+msgid "Related Picking"
+msgstr "Giao nhận liên quan"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_sale_config_settings
+msgid "sale.config.settings"
+msgstr "sale.config.settings"
+
+#. module: sale_stock
+#: help:sale.order,picking_ids:0
+msgid "This is a list of delivery orders that has been generated for this sales order."
+msgstr "Đây là danh sách các phiếu giao hàng liên quan tới đơn bán hàng này."
+
+#. module: sale_stock
+#: model:process.node,name:sale_stock.process_node_saleorderprocurement0
+msgid "Sales Order Requisition"
+msgstr "Yêu Cầu Bán Hàng"
+
+#. module: sale_stock
+#: model:process.transition,name:sale_stock.process_transition_deliver0
+msgid "Create Delivery Order"
+msgstr "Tạo phiếu giao hàng"
+
+#. module: sale_stock
+#: view:sale.order:0
+msgid "Ignore Exception"
+msgstr "Bỏ Qua Lỗi"
+
+#. module: sale_stock
+#: code:addons/sale_stock/sale_stock.py:614
+#, python-format
+msgid "You plan to sell %.2f %s but you only have %.2f %s available !\n"
+"The real stock is %.2f %s. (without reservations)"
+msgstr "Bạn định bán %.2f %s nhưng bạn chỉ còn %.2f %s.\n"
+"Tồn kho thực tế là %.2f %s."
+
+#. module: sale_stock
+#: view:sale.order:0
+msgid "Recreate Delivery Order"
+msgstr "Tạo lại Phiếu Giao Hàng"
+
+#. module: sale_stock
+#: help:sale.config.settings,group_multiple_shops:0
+msgid "This allows to configure and use multiple shops."
+msgstr "Cho phép cấu hình và dùng nhiều cửa hàng."
+
+#. module: sale_stock
+#: field:sale.order,picked_rate:0
+msgid "Picked"
+msgstr "Đã giao"
+
+#. module: sale_stock
+#: selection:sale.order,picking_policy:0
+msgid "Deliver each product when available"
+msgstr "Giao sản phẩm khi có đủ hàng"
+
+#. module: sale_stock
+#: model:process.transition,name:sale_stock.process_transition_packing0
+msgid "Create Pick List"
+msgstr "Tạo danh sách lô hàng"
+
+#. module: sale_stock
+#: model:process.transition,note:sale_stock.process_transition_deliver0
+msgid "Depending on the configuration of the location Output, the move between the output area and the customer is done through the Delivery Order manually or automatically."
+msgstr "Depending on the configuration of the location Output, the move between the output area and the customer is done through the Delivery Order manually or automatically."
+

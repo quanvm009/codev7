@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="init_stock_partial_picking_form_inherit" model="ir.ui.view">
+            <field name="name">init.stock.partial.picking.form</field>
+            <field name="inherit_id" ref="stock.stock_partial_picking_form"/>
+            <field name="model">stock.partial.picking</field>
+            <field name="arch" type="xml">
+                <xpath expr="//tree/field[@name='product_uom']" position="after">
+                    <field name="qty_kg"/>
+                    <field name="price_unit"/>
+                    <field name="processing_price"/>
+                    <field name="color_id"/>
+                    <field name="lot"/>
+                    <field name="roll"/>
+                    <field name="width"/>
+                    <field name="weight"/>
+                    <field name="qty_kg_real"/>
+                    <field name="qty_yrd_real"/>
+                    <field name="note"/>
+                </xpath>
+
+
+            </field>
+        </record>
+
+    </data>
+</openerp>

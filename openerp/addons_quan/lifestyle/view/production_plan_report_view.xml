@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="aeroo_production_plan_report_id" model="ir.actions.report.xml">
+            <field name="name">Production Plan</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">production.plan</field>
+            <field name="report_name">production_plan_report</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-ods</field>
+            <field name="parser_loc">lifestyle/report/production_plan_report.py</field>
+            <field name="report_rml">lifestyle/report/production_plan.ods</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+
+        <record model="ir.values" id="init_production_plan_report">
+            <field name="model_id" ref="lifestyle.model_production_plan"/>
+            <field name="name">Production Plan</field>
+            <field name="key2">client_print_multi</field>
+            <field name="value" eval="'ir.actions.report.xml,'+str(aeroo_production_plan_report_id)"/>
+            <field name="key">action</field>
+            <field name="model">production.plan</field>
+        </record>
+
+    </data>
+</openerp>

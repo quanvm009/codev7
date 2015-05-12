@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="account_invoices" model="ir.actions.report.xml">
+            <field name="name">Invoices</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.invoice</field>
+            <field name="report_name">account_invoices</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-ods</field>
+            <field name="parser_loc">lifestyle/report/invoice_report.py</field>
+            <field name="report_rml">lifestyle/report/invoice.ods</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+
+        <record model="ir.values" id="init_invoice_report">
+            <field name="model_id" ref="account.model_account_invoice"/>
+            <field name="name">Invoices</field>
+            <field name="key2">client_print_multi</field>
+            <field name="value" eval="'ir.actions.report.xml,'+str(account_invoices)"/>
+            <field name="key">action</field>
+            <field name="model">account.invoice</field>
+        </record>
+
+    </data>
+</openerp>

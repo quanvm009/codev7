@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="init_product_uom_form_view_inherit">
+            <field name="name">init.product.uom.form.view.inherit</field>
+            <field name="model">product.uom</field>
+            <field name="type">form</field>
+            <field name="priority">25</field>
+            <field name="inherit_id" ref="product.product_uom_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="yard"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+<data noupdate="0">
+    
+<!--     <record id="group_lifestyle_system" model="res.groups"> -->
+<!--         <field name="name">See Lifestyle </field> -->
+<!--         <field name="category_id" ref="module_category_lifestyle_system"/> -->
+<!--         <field name="comment">The user will have access to his own data .</field> -->
+<!--     </record>     -->
+	
+	<record model="ir.module.category" id="module_category_lifestyle_system">
+        <field name="name">Lifestyle System</field>
+        <field name="description">Lifestyle System</field>
+        <field name="sequence">16</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    
+########## User
+    <record id="group_lifestyle_user" model="res.groups">
+        <field name="name">Lifestyle User</field>
+        <field name="category_id" ref="module_category_lifestyle_system"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_sale_salesman')), 
+										 (4, ref('stock.group_stock_user')), 
+										 (4, ref('purchase.group_purchase_user'))]"/>        
+        <field name="comment">The user will have access to his own data .</field>
+    </record>  
+	
+    <record id="group_lifestyle_viewer" model="res.groups">
+        <field name="name">Lifestyle Viewer</field>
+        <field name="category_id" ref="module_category_lifestyle_system"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_sale_manager')), 
+										 (4, ref('stock.group_stock_manager')), 
+										 (4, ref('purchase.group_purchase_manager'))]"/>
+        <field name="comment">The user will have access to his own data .</field>
+    </record>	
+    
+    <record id="group_lifestyle_manager" model="res.groups">
+        <field name="name">Lifestyle Manager</field>
+        <field name="category_id" ref="module_category_lifestyle_system"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_sale_manager')), 
+										 (4, ref('stock.group_stock_manager')), 
+										 (4, ref('purchase.group_purchase_manager'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root'))]"/>
+        <field name="comment">The user will have access to his own data .</field>
+    </record>    
+    
+########### Rule
+
+    <record id="lifestyle_user_production_plan_sale_rule" model="ir.rule">
+        <field name="name">Lifestyle User Production Plan Sale</field>
+        <field ref="model_production_plan_sale" name="model_id"/>
+        <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('group_lifestyle_user'))]"/>
+    </record>    
+    
+    <record id="lifestyle_user_production_plan_rule" model="ir.rule">
+        <field name="name">Lifestyle User Production Plan</field>
+        <field ref="model_production_plan" name="model_id"/>
+        <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('group_lifestyle_user'))]"/>
+    </record>    
+    
+    <record id="lifestyle_user_production_section_rule" model="ir.rule">
+        <field name="name">Lifestyle User Production Section</field>
+        <field ref="model_production_section" name="model_id"/>
+        <field name="domain_force">['|',('user_id','=',user.id),('user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('group_lifestyle_user'))]"/>
+    </record>  
+    
+    <record id="lifestyle_user_other_cost_rule" model="ir.rule">
+        <field name="name">Lifestyle User Other Cost</field>
+        <field ref="model_other_cost" name="model_id"/>
+        <field name="domain_force">['|',('sale_id.user_id','=',user.id),('sale_id.user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('group_lifestyle_user'))]"/>
+    </record>    
+    
+    <record id="lifestyle_user_picking_rule" model="ir.rule">
+        <field name="name">Lifestyle Picking</field>
+        <field ref="stock.model_stock_picking" name="model_id"/>
+        <field name="domain_force">['|','|',('user_id','=',user.id),('sale_line_id.order_id.user_id','=',user.id),('sale_line_id.order_id.user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('group_lifestyle_user'))]"/>
+    </record>     
+    
+    <record id="lifestyle_user_move_rule" model="ir.rule">
+        <field name="name">Lifestyle Move</field>
+        <field ref="stock.model_stock_move" name="model_id"/>
+        <field name="domain_force">['|','|',('user_id','=',user.id),('sale_line_id.order_id.user_id','=',user.id),('sale_line_id.order_id.user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('group_lifestyle_user'))]"/>
+    </record>       
+    
+    <record id="lifestyle_purchase_order_rule" model="ir.rule">
+        <field name="name">Lifestyle Purchase Order</field>
+        <field ref="purchase.model_purchase_order" name="model_id"/>
+        <field name="domain_force">['|','|','|',('user_id','=',user.id),('user_id','=',False),('saleman','=',user.id),('user_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('group_lifestyle_user'))]"/>
+    </record>      
+
+    
+ 
+    
+</data>
+</openerp>

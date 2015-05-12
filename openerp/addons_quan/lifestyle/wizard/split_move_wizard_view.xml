@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_init_split_move_wizard" model="ir.ui.view">
+            <field name="name">view.split.move.wizard</field>
+            <field name="model">split.move.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Delivery Product Finished" version="7.0">
+                    <group>
+                        <group>
+                            <field name="color_id"/>
+                            <field name="lot"/>
+                            <field name="roll"/>
+                            <field name="weight"/>
+                            <field name="width"/>
+                            <field name="address"/>
+                            <field name="note"/>
+                        </group>
+                        <group>
+                            <field name="product_qty"/>
+                            <field name="qty_kg_real"/>
+                            <field name="qty_kg"/>
+                            <field name="qty_yrd_real"/>
+                            <field name="price_unit"/>
+                            <field name="processing_price"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="make_split_move" string="Validate" type="object" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_init_view_split_move_wizard" model="ir.actions.act_window">
+            <field name="name">Split Move</field>
+            <field name="res_model">split.move.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_id" ref="view_init_split_move_wizard"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+    </data>
+</openerp>

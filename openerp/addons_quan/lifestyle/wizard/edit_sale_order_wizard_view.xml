@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_edit_sale_order_wizard" model="ir.ui.view">
+            <field name="name">view.edit.sale.order.wizard</field>
+            <field name="model">edit.sale.order.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Edit Sale Orders" version="7.0">
+                    <group col="4" colspan="2">
+
+                    </group>
+                    <separator string="Sale Order Lines" colspan="2"/>
+                    <field name="order_line">
+                        <tree editable="top">
+                            <field name="order_id"/>
+                            <field name="categ_id"/>
+                            <field name="product_id"/>
+                            <field name="product_uom_qty"/>
+                            <field name="qty_kg"/>
+                            <field name="price_unit"/>
+                            <field name="price_unit_kg"/>
+                            <field name="price_order"/>
+                            <field name="price_order_kg"/>
+                            <field name="state"/>
+                        </tree>
+                        <form>
+                            <field name="categ_id"/>
+                            <field name="product_id"/>
+                            <field name="product_uom_qty"/>
+                            <field name="qty_kg"/>
+                            <field name="price_unit"/>
+                            <field name="price_unit_kg"/>
+                            <field name="price_order"/>
+                            <field name="price_order_kg"/>
+                            <field name="state"/>
+                        </form>
+                    </field>
+                    <footer>
+                        <button name="button_validate" string="Confirm" type="object" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_edit_sale_order_wizard" model="ir.actions.act_window">
+            <field name="name">Edit Sale Order</field>
+            <field name="res_model">edit.sale.order.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_edit_sale_order_wizard"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</openerp>

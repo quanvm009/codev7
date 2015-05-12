@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<openerp>
+    <data noupdate="1">
+        <record id="aeroo_warehouse_section_id" model="ir.actions.report.xml">
+            <field name="name">Warehouse Section Report</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">section.wizard.report</field>
+            <field name="report_name">warehouse_section</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-ods</field>
+            <field name="parser_loc">lifestyle/report/warehouse_section.py</field>
+            <field name="report_rml">lifestyle/report/warehouse_section.ods</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+        <record model="ir.values" id="aeroo_warehouse_section_id2">
+            <field name="model_id" ref="model_section_wizard_report"/>
+            <field name="name">Warehouse Section Report</field>
+            <field name="key2">client_print_multi</field>
+            <field name="value" eval="'ir.actions.report.xml,'+str(aeroo_warehouse_section_id)"/>
+            <field name="key">action</field>
+            <field name="model">section.wizard.report</field>
+        </record>
+        <!--     <ir_set>
+                <field eval="'action'" name="key"/>
+                <field eval="'client_print_multi'" name="key2"/>
+                <field eval="['section.wizard.report']" name="models"/>
+                <field name="name">Warehouse Section Report</field>
+                <field eval="'ir.actions.report.xml,'+str(aeroo_warehouse_section_id)" name="value"/>
+                <field eval="True" name="isobject"/>
+                <field eval="True" name="replace"/>
+            </ir_set>     -->
+    </data>
+</openerp>
+

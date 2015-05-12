@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        =====================================================
+        =================== Internal Order ===================
+        =====================================================
+        <record id="internal_order_search_view" model="ir.ui.view">
+            <field name="name">internal.order.search.view</field>
+            <field name="model">internal.order</field>
+            <field name="arch" type="xml">
+                <search string="Internal Order">
+                    <field name="name"/>
+                    <field name="date_order"/>
+                    <field name="date_confirm"/>
+                    <field name="user_id"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="internal_order_list_view" model="ir.ui.view">
+            <field name="name">internal.order.list.view</field>
+            <field name="model">internal.order</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Internal Order">
+                    <field name="name"/>
+                    <field name="date_order"/>
+                    <field name="user_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="internal_order_form_view" model="ir.ui.view">
+            <field name="name">internal.order.form.view</field>
+            <field name="model">internal.order</field>
+            <field name="arch" type="xml">
+                <form string="Internal Order" version="7.0">
+                    <header>
+                        <button name="action_transfer" states="draft" string="Transfer" type="object"
+                                class="oe_highlight"/>
+                        <button name="action_cancel" states="done" string="Cancel" type="object" class="oe_highlight"/>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group col="4" colspan="2">
+                            <field name="name"/>
+                            <field name="date_order"/>
+                            <field name="user_id"/>
+                            <field name="date_confirm"/>
+                            <field name="sol_from_id" on_change="onchange_sol_id(sol_from_id,sol_to_id)"/>
+                            <field name="sol_to_id" on_change="onchange_sol_id(sol_from_id,sol_to_id)"/>
+                            <field name="section_from_id"/>
+                            <field name="section_to_id"/>
+                            <field name="warehouse_from_id"/>
+                            <field name="warehouse_to_id"/>
+                        </group>
+                        <separator string="Moves" colspan="2"/>
+                        <field name="order_line">
+                            <tree editable="top">
+                                <field name="product_id"/>
+                                <field name="color_id"/>
+                                <field name="product_uom"/>
+                                <field name="qty"/>
+                                <field name="qty_kg" invisible="1"/>
+                                <field name="lot"/>
+                                <field name="roll"/>
+                                <field name="width"/>
+                                <field name="weight"/>
+                                <field name="note"/>
+                            </tree>
+                            <form>
+                                <field name="product_id"/>
+                                <field name="color_id"/>
+                                <field name="product_uom"/>
+                                <field name="qty"/>
+                                <field name="qty_kg" invisible="1"/>
+                                <field name="lot"/>
+                                <field name="roll"/>
+                                <field name="width"/>
+                                <field name="weight"/>
+                                <field name="note"/>
+                            </form>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="internal_order_action_form" model="ir.actions.act_window">
+            <field name="name">Internal Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">internal.order</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="internal_order_search_view"/>
+            <field name="view_id" ref="internal_order_list_view"/>
+        </record>
+
+        <menuitem action="internal_order_action_form"
+                  id="menu_internal_order_action_form"
+                  groups="lifestyle.group_lifestyle_manager"
+                  parent="stock.menu_stock_warehouse_mgmt" sequence="5"/>
+
+    </data>
+</openerp>

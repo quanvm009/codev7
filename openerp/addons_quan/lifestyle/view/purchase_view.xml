@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+
+        <record id="purchase.purchase_form_action" model="ir.actions.act_window">
+            <field name="domain">[('state','not in',('draft','sent','confirmed','cancel'))]</field>
+        </record>
+
+        <record model="ir.ui.view" id="init_view_purchase_order_filter_inherit">
+            <field name="name">init.view.purchase.order.filter.inherit</field>
+            <field name="model">purchase.order</field>
+            <field name="type">form</field>
+            <field name="priority">25</field>
+            <field name="inherit_id" ref="purchase.view_purchase_order_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//filter[@name='exception']" position="after">
+                        <field name="sale_id"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="init_purchase_order_tree_inherit1">
+            <field name="name">init.purchase.order.tree.inherit1</field>
+            <field name="model">purchase.order</field>
+            <field name="type">form</field>
+            <field name="priority">25</field>
+            <field name="inherit_id" ref="purchase.purchase_order_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='name']" position="after">
+                        <field name="sale_id"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="purchase_order_form_inherit_dn">
+            <field name="name">purchase.order.form.inherit.dn</field>
+            <field name="model">purchase.order</field>
+            <field name="type">form</field>
+            <field name="priority">25</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='partner_ref']" position="after">
+                        <field name="sale_id"/>
+                        <field name="partner_cus"/>
+                        <field name="saleman"/>
+                        <field name="lc"/>
+                    </xpath>
+                    <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
+                        <field name="sale_line_id" invisible="0"/>
+                    </xpath>
+                    <xpath expr="//field[@name='order_line']/tree/field[@name='product_qty']" position="after">
+                        <field name="qty_kg" invisible="1"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+
+        <!--Purchase order line-->
+
+        <record model="ir.ui.view" id="purchase_order_line_form_inherit">
+            <field name="name">purchase.order.line.form.inherit</field>
+            <field name="model">purchase.order.line</field>
+            <field name="type">form</field>
+            <field name="priority">25</field>
+            <field name="inherit_id" ref="purchase.purchase_order_line_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='product_id']" position="after">
+                        <field name="sale_line_id"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+
+        <record id="view_purchase_line_order_action_form" model="ir.actions.act_window">
+            <field name="name">Purchase Order Line</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">purchase.order.line</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="purchase.purchase_order_line_tree"/>
+        </record>
+
+        <menuitem action="view_purchase_line_order_action_form"
+                  id="menu_view_purchase_line_order_action_form"
+                  parent="purchase.menu_procurement_management" sequence="5"/>
+
+
+
+
+    </data>
+</openerp>

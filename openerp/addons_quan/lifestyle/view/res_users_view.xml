@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        <record id="base_view_users_form_inherit_dn" model="ir.ui.view">
+            <field name="name">base.view.users.form.inherit</field>
+            <field name="model">res.users</field>
+            <field eval="26" name="priority"/>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='email']" position="after">
+                    <field name="code"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

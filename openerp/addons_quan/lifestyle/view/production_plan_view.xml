@@ -1,0 +1,157 @@
+<?xml version="1.0" ?>
+<openerp>
+    <data>
+        =====================================================
+        =================== Production Plan =============
+        =====================================================
+
+        <record id="production_plan_search_view" model="ir.ui.view">
+            <field name="name">production.plan.search</field>
+            <field name="model">production.plan</field>
+            <field name="arch" type="xml">
+                <search string="Production Section">
+                    <field name="name"/>
+                    <field name="sale_id"/>
+                    <field name="sale_line_id"/>
+                    <field name="product_id"/>
+                    <field name="quantity"/>
+                    <field name="product_uom"/>
+                    <field name="qty_kg"/>
+                    <field name="date_create"/>
+                    <field name="user_id"/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Status" icon="terp-stock_effects-object-colorize" domain="[]"
+                                context="{'group_by':'state'}"/>
+                        <filter string="Sale Orders" icon="terp-stock_effects-object-colorize" domain="[]"
+                                context="{'group_by':'sale_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="production_plan_list_view" model="ir.ui.view">
+            <field name="name">production.plan.list</field>
+            <field name="model">production.plan</field>
+            <field name="priority">1</field>
+            <field name="arch" type="xml">
+                <tree string="Production Section">
+                    <field name="name"/>
+                    <field name="sale_id"/>
+                    <field name="partner_id"/>
+                    <field name="lc"/>
+                    <field name="sale_line_id"/>
+                    <field name="quantity"/>
+                    <field name="product_uom"/>
+                    <field name="qty_kg"/>
+                    <field name="date_create"/>
+                    <field name="user_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="production_plan_form_view" model="ir.ui.view">
+            <field name="name">production.plan.form</field>
+            <field name="model">production.plan</field>
+            <field name="arch" type="xml">
+                <form string="Production Section" version="7.0">
+                    <sheet>
+                        <header>
+                            <button name="make_po" type="object" states="confirm" class="oe_highlight" string="Make PO"
+                                    context="{'active_ids': active_ids}"/>
+                            <button name="make_open" type="object" states="draft" class="oe_highlight"
+                                    widget="statusbar" string="Plan Confirm"/>
+                            <button name="action_confirm" type="object" states="open" class="oe_highlight"
+                                    widget="statusbar" string="Section Confirm"/>
+                            <button name="make_section" type="object" states="open" class="oe_highlight"
+                                    widget="statusbar" string="Make Section"/>
+                            <button name="make_done" type="object" states="confirm" class="oe_highlight"
+                                    confirm="Are you sure you want to make done order ?"
+                                    widget="statusbar" string="Make Done"/>
+                            <button name="make_draft" type="object" class="oe_highlight"
+                                    confirm="Are you sure you want to make draft plan ?"
+                                    groups="lifestyle.group_lifestyle_manager"
+                                    widget="statusbar" string="Make Draft"/>
+                            <button name="make_cancel" type="object" class="oe_highlight"
+                                    confirm="Are you sure you want to make cancel ?"
+                                    widget="statusbar" string="Make Cancel"/>
+                            <field name="state" widget="statusbar"
+                                   statusbar_colors='{"draft":"blue","open":"blue","done":"blue"}'/>
+                        </header>
+                        <group col="4" colspan="2">
+                            <field name="name"/>
+                            <field name="sale_id"/>
+                            <field name="partner_id"/>
+                            <field name="lc"/>
+                            <field name="sale_line_id" colspan="4" on_change="sale_line_change(sale_line_id)"/>
+                            <field name="quantity"/>
+                            <field name="product_uom" invisible="1"/>
+                            <field name="qty_kg"/>
+                            <field name="saleman"/>
+                            <field name="user_id"/>
+                            <field name="date_create" invisible="1"/>
+                            <field name="product_id" invisible="1"/>
+                        </group>
+                        <notebook>
+                            <page string="Section">
+                                <field name="section_ids" readonly="1">
+                                    <tree string="Section">
+                                        <field name="sequence" string="Sequence"/>
+                                        <field name="product_id"/>
+                                        <field name="qty"/>
+                                        <field name="qty_kg" invisible="1"/>
+                                        <field name="price"/>
+                                        <field name="stock_id"/>
+                                        <field name="state" invisible="1"/>
+                                        <!--  attrs="{'invisible':['|',('plan_id.state','=','draft'), ('plan_id.state', '=', 'done')]}"-->
+                                        <button name="out_finished" type="object" class="oe_highlight" icon="nut1"
+                                                string="Delivery Material"/>
+                                        <button name="out_material" type="object" class="oe_highlight" icon="nut2"
+                                                string="Delivery Material"/>
+                                        <button name="in_finished" type="object" class="oe_highlight" icon="nut3"
+                                                string="Incoming Finished"/>
+                                    </tree>
+
+                                </field>
+                            </page>
+                            <page string="History">
+                                <field name="history_ids">
+                                    <tree string="History">
+                                        <field name="product_id"/>
+                                        <field name="quantity"/>
+                                        <field name="qty_kg" invisible="1"/>
+
+                                        <field name="user_id"/>
+                                        <field name="date_create"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="production_plan_action_form" model="ir.actions.act_window">
+            <field name="name">Production Plan</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">production.plan</field>
+            <field name="domain">[('state','!=','cancel')]</field>
+            <field name="view_mode">form,tree,calendar,graph</field>
+            <field name="view_type">form</field>
+            <field name="search_view_id" ref="production_plan_search_view"/>
+            <field name="view_id" ref="production_plan_list_view"/>
+        </record>
+
+
+        <menuitem action="production_plan_action_form"
+                  id="menu_production_plan_action_form"
+                  parent="menu_production" sequence="2"/>
+
+
+    </data>
+</openerp>

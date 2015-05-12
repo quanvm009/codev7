@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+        <record id="invoice_factory_wizard_form" model="ir.ui.view">
+            <field name="name">invoice.factory.wizard.form</field>
+            <field name="model">invoice.factory.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Invoice Factory Wizard " version="7.0">
+                    <group>
+                        <field name="sale_id" on_change="onchange_sale_id(sale_id)"/>
+                        <field name="section_id" on_change="onchange_section_id(section_id)"/>
+                        <field name="warehouse_id"/>
+                        <field name="date"/>
+                    </group>
+                    <footer>
+                        <button name="make_invoice" type="object" class="oe_highlight" string="Make Invoice"/>
+
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_invoice_factory_wizard_form" model="ir.actions.act_window">
+            <field name="name">Invoice Factory</field>
+            <field name="res_model">invoice.factory.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_id" ref="invoice_factory_wizard_form"/>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem
+                name="Invoice Factory"
+                id="init_invoice_factory_wizard_form"
+                groups="account.group_account_user"
+                parent="menu_production" sequence="20"
+                action="action_invoice_factory_wizard_form"
+                />
+
+
+    </data>
+</openerp>

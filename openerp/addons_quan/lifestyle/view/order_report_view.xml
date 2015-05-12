@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="order_report_id" model="ir.actions.report.xml">
+            <field name="name">Order Report</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">sale.order</field>
+            <field name="report_name">report_order</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-ods</field>
+            <field name="parser_loc">lifestyle/report/order_report.py</field>
+            <field name="report_rml">lifestyle/report/order_report.ods</field>
+            <field name="parser_state">loc</field>
+            <field name="tml_source">file</field>
+        </record>
+
+        <!--<record model="ir.values" id="init_order_report">
+            <field name="model_id" ref="lifestyle.model_sale_order" />
+            <field name="name">Report Order</field>
+            <field name="key2">client_print_multi</field>
+            <field name="value" eval="'ir.actions.report.xml,'+str(order_report_id)" />
+            <field name="key">action</field>
+            <field name="model">sale.order</field>
+        </record>
+
+       -->
+    </data>
+</openerp>

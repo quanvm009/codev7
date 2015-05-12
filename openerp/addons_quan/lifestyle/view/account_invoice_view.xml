@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="init_invoice_form" model="ir.ui.view">
+            <field name="name">account.invoice.form.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//notebook/page/field[@name='invoice_line']/tree/field[@name='name']" position="after">
+                        <field name="sale_id"/>
+                        <field name="qty_kg"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+        <record id="init_invoice_supplier_form" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form.inherit</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//notebook/page/field[@name='invoice_line']/tree/field[@name='name']" position="after">
+                        <field name="sale_id"/>
+                        <field name="qty_kg"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="init_view_account_invoice_filter" model="ir.ui.view">
+            <field name="name">init.view.account.invoice.filter</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.view_account_invoice_filter"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='period_id']" position="after">
+                        <field name="sale_id"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+    </data>
+</openerp>
